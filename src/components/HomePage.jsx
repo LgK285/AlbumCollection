@@ -69,28 +69,28 @@ export default function HomePage() {
         <div className="absolute bottom-20 right-1/4 w-64 h-64 rounded-full bg-fuchsia-300/20 blur-3xl" />
       </div>
 
-      <div className="container relative mx-auto px-4 py-12">
+      <div className="container relative mx-auto px-3 sm:px-4 py-6 sm:py-12">
         <div className="max-w-2xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-12">
-            <h1 className="text-4xl sm:text-5xl font-bold text-love-gradient mb-4 flex items-center justify-center gap-3 flex-wrap">
+          <div className="text-center mb-8 sm:mb-12">
+            <h1 className="text-3xl sm:text-5xl font-bold text-love-gradient mb-3 sm:mb-4 flex items-center justify-center gap-2 sm:gap-3 flex-wrap">
               <span className="sparkle">❤️</span>
               Trang Chủ
               <span className="sparkle sparkle-delay-1">💕</span>
             </h1>
-            <p className="text-rose-700/90 text-lg font-medium">
+            <p className="text-rose-700/90 text-base sm:text-lg font-medium">
               Những kỉ niệm đẹp cùng nhau
             </p>
           </div>
 
           {/* Upload Form Card */}
-          <div className="card-love-glow bg-white/85 backdrop-blur-sm rounded-2xl shadow-xl border border-pink-200/60 p-8 mb-8">
-            <h2 className="text-2xl font-bold text-rose-800 mb-6 flex items-center gap-2">
-              <span className="text-2xl">📷</span>
+          <div className="card-love-glow bg-white/85 backdrop-blur-sm rounded-2xl shadow-xl border border-pink-200/60 p-4 sm:p-8 mb-6 sm:mb-8">
+            <h2 className="text-xl sm:text-2xl font-bold text-rose-800 mb-4 sm:mb-6 flex items-center gap-2">
+              <span className="text-xl sm:text-2xl">📷</span>
               Thêm Ảnh/Video Mới
             </h2>
 
-            <form onSubmit={handleUpload} className="space-y-6">
+            <form onSubmit={handleUpload} className="space-y-4 sm:space-y-6">
               <div>
                 <label className="block text-rose-800 font-semibold mb-2">
                   Tháng / năm <span className="text-rose-500">*</span>
@@ -99,7 +99,7 @@ export default function HomePage() {
                   type="month"
                   value={month}
                   onChange={(e) => setMonth(e.target.value)}
-                  className="input-love w-full px-4 py-3 border-2 border-pink-200 rounded-xl bg-white/90 text-rose-900 font-medium focus:ring-2 focus:ring-pink-300/50 transition"
+                  className="input-love w-full px-4 py-3 min-h-[48px] border-2 border-pink-200 rounded-xl bg-white/90 text-rose-900 font-medium focus:ring-2 focus:ring-pink-300/50 transition text-base"
                 />
                 <p className="text-sm text-rose-600/80 mt-1">
                   Chọn tháng năm gắn với kỉ niệm (bất kỳ thời điểm nào).
@@ -116,7 +116,7 @@ export default function HomePage() {
                   onChange={(e) => setAlbum(e.target.value)}
                   placeholder="VD: 20/10, Kỉ Niệm đi biển..."
                   maxLength={100}
-                  className="input-love w-full px-4 py-3 border-2 border-pink-200 rounded-xl bg-white/90 text-rose-900 font-medium focus:ring-2 focus:ring-pink-300/50 transition placeholder:text-rose-300"
+                  className="input-love w-full px-4 py-3 min-h-[48px] border-2 border-pink-200 rounded-xl bg-white/90 text-rose-900 font-medium focus:ring-2 focus:ring-pink-300/50 transition placeholder:text-rose-300 text-base"
                 />
                 <p className="text-sm text-rose-600/80 mt-1">
                   Gộp ảnh theo bộ sưu tập; để trống sẽ xếp vào &quot;Chung&quot;.
@@ -133,7 +133,7 @@ export default function HomePage() {
                   multiple
                   accept="image/*,video/*"
                   onChange={handleFileChange}
-                  className="input-love w-full px-4 py-3 border-2 border-pink-200 rounded-xl bg-white/90 text-rose-800 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-gradient-to-r file:from-pink-500 file:to-rose-500 file:text-white file:font-semibold file:cursor-pointer hover:file:opacity-90 transition"
+                  className="input-love w-full px-3 sm:px-4 py-3 min-h-[48px] border-2 border-pink-200 rounded-xl bg-white/90 text-rose-800 file:mr-2 sm:file:mr-4 file:py-2 file:px-3 sm:file:px-4 file:rounded-lg file:border-0 file:bg-gradient-to-r file:from-pink-500 file:to-rose-500 file:text-white file:font-semibold file:cursor-pointer file:text-sm sm:file:text-base hover:file:opacity-90 transition text-base"
                 />
                 <p className="text-sm text-rose-600/80 mt-1">
                   Có thể chọn nhiều ảnh/video cùng lúc (tối đa {MAX_FILES} file).
@@ -179,7 +179,7 @@ export default function HomePage() {
               <button
                 type="submit"
                 disabled={loading || files.length === 0}
-                className="btn-love w-full bg-gradient-to-r from-pink-500 via-rose-500 to-fuchsia-500 text-white font-bold py-3.5 rounded-xl shadow-lg shadow-pink-500/25 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                className="btn-love w-full min-h-[48px] bg-gradient-to-r from-pink-500 via-rose-500 to-fuchsia-500 text-white font-bold py-3.5 rounded-xl shadow-lg shadow-pink-500/25 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none text-base"
               >
                 {loading ? '⏳ Đang tải...' : `📤 Thêm ${files.length > 0 ? files.length + ' ảnh/video' : 'ảnh'}`}
               </button>
@@ -199,7 +199,7 @@ export default function HomePage() {
           </div>
 
           {/* Guide */}
-          <div className="bg-gradient-to-r from-amber-50 to-orange-50 rounded-2xl p-6 border border-amber-200/60 shadow-lg shadow-amber-500/10">
+          <div className="bg-gradient-to-r from-amber-50 to-orange-50 rounded-2xl p-4 sm:p-6 border border-amber-200/60 shadow-lg shadow-amber-500/10">
             <h3 className="font-bold text-amber-900 mb-3 flex items-center gap-2">
               <span className="text-xl sparkle">💡</span>
               Hướng dẫn
@@ -221,10 +221,10 @@ export default function HomePage() {
           </div>
 
           {/* Quick Link */}
-          <div className="text-center mt-10">
+          <div className="text-center mt-8 sm:mt-10">
             <button
               onClick={() => navigate('/collection')}
-              className="btn-love bg-gradient-to-r from-fuchsia-500 via-pink-500 to-rose-500 text-white font-bold py-3.5 px-10 rounded-xl shadow-lg shadow-fuchsia-500/30"
+              className="btn-love w-full sm:w-auto min-h-[48px] bg-gradient-to-r from-fuchsia-500 via-pink-500 to-rose-500 text-white font-bold py-3.5 px-6 sm:px-10 rounded-xl shadow-lg shadow-fuchsia-500/30"
             >
               👉 Xem Bộ Sưu Tập
             </button>

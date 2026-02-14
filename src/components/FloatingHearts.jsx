@@ -17,6 +17,9 @@ export default function FloatingHearts() {
   const [hearts, setHearts] = useState([]);
 
   useEffect(() => {
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    const delay = isMobile ? 800 : 400;
+    const maxHearts = isMobile ? 12 : 25;
     const interval = setInterval(() => {
       const id = crypto.randomUUID?.() ?? Date.now() + Math.random();
       const left = Math.random() * 100;
@@ -29,7 +32,7 @@ export default function FloatingHearts() {
       const opacity = 0.5 + Math.random() * 0.4;
 
       setHearts((prev) => [
-        ...prev.slice(-25),
+        ...prev.slice(-maxHearts),
         {
           id,
           left,
@@ -45,7 +48,7 @@ export default function FloatingHearts() {
       setTimeout(() => {
         setHearts((prev) => prev.filter((h) => h.id !== id));
       }, duration * 1000 + 300);
-    }, 400);
+    }, delay);
 
     return () => clearInterval(interval);
   }, []);

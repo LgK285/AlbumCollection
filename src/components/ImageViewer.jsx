@@ -43,7 +43,7 @@ export default function ImageViewer({ media, onClose }) {
   const mediaUrl = `${API_BASE}/${media.filePath}`;
 
   const btnIcon =
-    'rounded-xl w-10 h-10 flex items-center justify-center text-lg font-semibold transition-colors bg-white/10 hover:bg-white/20 text-white border border-white/20';
+    'rounded-xl w-11 h-11 sm:w-10 sm:h-10 flex items-center justify-center text-lg font-semibold transition-colors bg-white/10 hover:bg-white/20 active:bg-white/25 text-white border border-white/20 min-w-[44px] min-h-[44px]';
 
   // ---------- Fullscreen ----------
   if (isFullscreen) {
@@ -94,15 +94,15 @@ export default function ImageViewer({ media, onClose }) {
   // ---------- Modal thường ----------
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex items-center justify-center p-0 sm:p-4 bg-black/80 backdrop-blur-sm"
       onClick={onClose}
     >
       <div
-        className="bg-neutral-900 rounded-2xl overflow-hidden w-full max-w-5xl flex flex-col shadow-2xl border border-white/10"
+        className="bg-neutral-900 rounded-none sm:rounded-2xl overflow-hidden w-full h-full sm:h-auto sm:max-h-[90vh] max-w-5xl flex flex-col shadow-2xl border-0 sm:border border-white/10"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="flex items-center justify-between px-4 py-3 bg-neutral-800/90 border-b border-white/10">
+        <div className="flex items-center justify-between px-3 sm:px-4 py-3 bg-neutral-800/90 border-b border-white/10 min-h-[56px]">
           <span className="text-white font-medium flex items-center gap-2">
             {isImage ? (
               <>
@@ -170,30 +170,30 @@ export default function ImageViewer({ media, onClose }) {
 
         {/* Thanh công cụ (chỉ ảnh) */}
         {isImage && (
-          <div className="px-4 py-3 bg-neutral-800/90 border-t border-white/10 flex flex-wrap items-center justify-center gap-2">
+          <div className="px-3 sm:px-4 py-3 bg-neutral-800/90 border-t border-white/10 flex flex-wrap items-center justify-center gap-2">
             <button
               onClick={() => handleZoom('out')}
               disabled={zoom <= 1}
-              className="px-4 py-2 rounded-xl text-sm font-medium bg-white/10 hover:bg-white/20 text-white disabled:opacity-40 disabled:cursor-not-allowed transition border border-white/10"
+              className="min-h-[44px] px-4 py-2 rounded-xl text-sm font-medium bg-white/10 hover:bg-white/20 text-white disabled:opacity-40 disabled:cursor-not-allowed transition border border-white/10"
             >
               🔍 Thu nhỏ
             </button>
             <button
               onClick={() => setZoom(1)}
-              className="px-4 py-2 rounded-xl text-sm font-medium bg-white/10 hover:bg-white/20 text-white transition border border-white/10"
+              className="min-h-[44px] px-4 py-2 rounded-xl text-sm font-medium bg-white/10 hover:bg-white/20 text-white transition border border-white/10"
             >
               🔄 1x
             </button>
             <button
               onClick={() => handleZoom('in')}
               disabled={zoom >= 5}
-              className="px-4 py-2 rounded-xl text-sm font-medium bg-white/10 hover:bg-white/20 text-white disabled:opacity-40 disabled:cursor-not-allowed transition border border-white/10"
+              className="min-h-[44px] px-4 py-2 rounded-xl text-sm font-medium bg-white/10 hover:bg-white/20 text-white disabled:opacity-40 disabled:cursor-not-allowed transition border border-white/10"
             >
               🔍 Phóng to
             </button>
             <button
               onClick={() => setIsFullscreen(true)}
-              className="px-4 py-2 rounded-xl text-sm font-medium bg-rose-500/80 hover:bg-rose-500 text-white transition"
+              className="min-h-[44px] px-4 py-2 rounded-xl text-sm font-medium bg-rose-500/80 hover:bg-rose-500 text-white transition"
             >
               ⛶ Toàn màn hình
             </button>
