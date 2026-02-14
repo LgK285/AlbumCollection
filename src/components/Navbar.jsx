@@ -10,7 +10,7 @@ export default function Navbar() {
             className="text-xl sm:text-2xl font-bold text-love-gradient flex items-center gap-2 sparkle"
           >
             <span className="text-2xl sm:text-3xl" aria-hidden>💕</span>
-            Albul ảnh kỉ niệm
+            Album ảnh kỉ niệm
           </Link>
           <div className="flex gap-4 sm:gap-6">
             <Link
