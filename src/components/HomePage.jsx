@@ -2,7 +2,7 @@ import { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-const API_BASE = 'http://localhost:5000';
+import { API_BASE } from '../config';
 const MAX_FILES = 50;
 
 export default function HomePage() {

@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 
-const BASE_URL = 'http://localhost:5000';
+import { API_BASE } from '../config';
 
 export default function ImageViewer({ media, onClose }) {
   const [zoom, setZoom] = useState(1);
@@ -40,7 +40,7 @@ export default function ImageViewer({ media, onClose }) {
   };
 
   const isImage = media.fileType.startsWith('image');
-  const mediaUrl = `${BASE_URL}/${media.filePath}`;
+  const mediaUrl = `${API_BASE}/${media.filePath}`;
 
   const btnIcon =
     'rounded-xl w-10 h-10 flex items-center justify-center text-lg font-semibold transition-colors bg-white/10 hover:bg-white/20 text-white border border-white/20';

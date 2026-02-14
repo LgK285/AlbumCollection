@@ -2,7 +2,7 @@ import { useState, useEffect, useMemo } from 'react';
 import axios from 'axios';
 import ImageViewer from './ImageViewer';
 
-const API_BASE = 'http://localhost:5000';
+import { API_BASE } from '../config';
 
 function monthToLabel(monthValue) {
   if (!monthValue) return '';
